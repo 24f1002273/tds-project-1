@@ -147,7 +147,7 @@ def push_to_repo(repo_name: str, files: List[Dict[str, str]], round_num: int):
 
 def write_code_with_llm(brief: str, checks: List[str], attachments: List[Dict], task: str) -> List[Dict[str, str]]:
     """Generate code using Google Gemini API"""
-    model = genai.GenerativeModel('gemini-pro')
+    model = genai.GenerativeModel('models/gemini-1.5-flash')
     
     # Prepare attachments info
     attachments_info = ""

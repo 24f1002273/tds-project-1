@@ -331,19 +331,22 @@ app = FastAPI()
 
 #post endpoint to take a json with fields : email, secret, task, round, nounce, brief, checks(array), evaluation of url, attachments(array with fields name and url)
 @app.post("/handle_task")
-async def handle_task(data: dict):
+def handle_task(data: dict):
     if not validate_secret(data.get("secret", "")):
-        return {"error": "Invalid secret"}
-    else:
-        # Process the valid task
+        return {"error": "Invalid Secret"}, 403
+    
+    try:
         if data.get("round") == 1:
             round1(data)
-            return {"message": "Round 1 processing started"}
+            return {"status": "Round 1 completed"}
         elif data.get("round") == 2:
             round2(data)
-            return {"message": "Round 2 processing started"}
+            return {"status": "Round 2 completed"}
         else:
             return {"error": "Invalid round"}
+    except Exception as e:
+        return {"error": str(e)}, 500
+
         
 
 if __name__ == "__main__":

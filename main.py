@@ -333,7 +333,7 @@ app = FastAPI()
 @app.post("/handle_task")
 async def handle_task(data: dict):
     if not validate_secret(data.get("secret", "")):
-        return {"error": "Invalid secret"}, 403
+        return {"error": "Invalid secret"}
     else:
         # Process the valid task
         if data.get("round") == 1:

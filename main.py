@@ -364,7 +364,7 @@ jobs:
     time.sleep(2)
     
     # Enable GitHub Pages with GitHub Actions as source
-    enable_github_pages_with_actions(repo_name)
+    enable_github_pages(repo_name)
     
     # Get latest commit SHA
     commit_sha = get_latest_commit_sha(repo_name)

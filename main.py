@@ -301,7 +301,7 @@ def round1(data: dict):
     repo_name = f"{task}"
     
     # Create repository
-    repo_info = create_repo(repo_name)
+    repo_info = create_github_repo(repo_name)
     repo_url = repo_info['html_url']
     
     # Wait for repo to be ready

@@ -367,7 +367,7 @@ jobs:
     enable_github_pages(repo_name)
     
     # Get latest commit SHA
-    commit_sha = get_latest_commit_sha(repo_name)
+    commit_sha = get_sha_of_latest_commit(repo_name)
     
     # Construct pages URL
     pages_url = f"https://{GITHUB_USERNAME}.github.io/{repo_name}/"
